@@ -1,0 +1,116 @@
+// Nav Bar
+// = = = = = = = = = = = = = //
+// Stewart Hines | Jan 2016
+// = = = = Contents: = = = = //
+// = = = = = = = = = = = = = //
+
+// = = = = 1. NavBar Variables = = = = //
+$blue:#0074D9
+// == 1.a NavBar Vars == //
+$navbarBG:darken($blue, 11)
+$navbarInnerWidth:960px
+$navListOrder:2
+// == 1.B Nav Item Vars == //
+$navItemPadding:20px
+$navItemColor:white
+
+// = = = = 2. Navbar Parts = = = = //
+
+.navbar
+  background:$navbarBG
+
+.navbar-inner
+  display:flex
+  flex-wrap:wrap
+  align-content:center
+  align-items:center
+  max-width:$navbarInnerWidth
+  margin:0 auto
+  background:$navbarBG
+
+.nav-right,
+.nav-left
+  flex: auto
+
+.navbar-left
+  order: 1
+  background:red
+.nav-right
+  order:2
+  justify-content: flex-end
+
+// = = = = 2. NavBar List = = = = //
+
+.nav-list
+  display:flex
+  justify-content: flex-end
+  order:$navListOrder
+  margin:0
+  padding:0
+  list-style:none
+  color:white
+  text-align:center
+  overflow:hidden
+  transition: max-height 0.4s ease-in-out
+
+  li
+    flex: auto
+    padding:$navItemPadding
+    color:$navItemColor
+    &:hover,
+    &.active
+      background:darken($navbarBG,11)
+
+// = = = = 3. Nav Brand = = = = //
+.navbar .navbar-brand
+  display:flex
+  align-items: center
+  h1
+    margin-left:16px
+    color:$navItemColor
+    font-size:21px
+    line-height:normal
+
+
+// = = = = 3. NavTrigger = = = = //
+.nav-trigger
+  display:none
+  flex:0 0 100%
+
+  .icon-bar
+    display:block
+    height:2px
+    width:22px
+    margin:0 auto
+    margin-bottom:5px
+    border-radius: 1px
+    background:white
+
+
+// = = = = 4. Media Queries = = = = //
+
+@media screen and (max-width:580px)
+  // == .A Nav Structure == //
+  .nav-left
+    padding-left:1rem
+
+  .nav-right
+    order:3
+
+  .nav-trigger
+    display:block
+    order:2
+    flex: 0 0 64px
+
+  // == .B Nav List == //
+  .nav-list
+    flex-wrap:wrap
+    justify-content: center
+    max-height:0
+    &.show
+      transition: max-height 0.4s ease-in-out
+      max-height:20rem
+    a
+      flex: 0 0 100%
+    li
+      flex: 0 0 100%
