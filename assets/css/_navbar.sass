@@ -34,17 +34,18 @@ $navItemColor:white
 
 .navbar-left
   order: 1
-  background:red
+  .nav-list
+    justify-content: flex-start
 .nav-right
   order:2
   justify-content: flex-end
+  .nav-list
+    justify-content: flex-end
 
 // = = = = 2. NavBar List = = = = //
 
 .nav-list
   display:flex
-  justify-content: flex-end
-  order:$navListOrder
   margin:0
   padding:0
   list-style:none
@@ -55,11 +56,16 @@ $navItemColor:white
 
   li
     flex: auto
+    display:flex
+    align-items: center
+    align-content:center
     padding:$navItemPadding
     color:$navItemColor
     &:hover,
     &.active
       background:darken($navbarBG,11)
+    .material-icons
+      margin-right:.5rem
 
 // = = = = 3. Nav Brand = = = = //
 .navbar .navbar-brand
@@ -75,32 +81,42 @@ $navItemColor:white
 // = = = = 3. NavTrigger = = = = //
 .nav-trigger
   display:none
-  flex:0 0 100%
+  padding:$navItemPadding
+  color:white
 
   .icon-bar
     display:block
     height:2px
     width:22px
-    margin:0 auto
+    margin:0
     margin-bottom:5px
     border-radius: 1px
     background:white
 
+  h1
+    display:inline-block
+    margin:0
+    padding:0
+    margin-left:24px
+    color:white
+    font-size:23px
+    line-height:1
 
 // = = = = 4. Media Queries = = = = //
 
 @media screen and (max-width:580px)
   // == .A Nav Structure == //
+
   .nav-left
-    padding-left:1rem
+    order:2
 
   .nav-right
     order:3
 
   .nav-trigger
-    display:block
-    order:2
-    flex: 0 0 64px
+    display:flex
+    align-items:center
+    align-content:center
 
   // == .B Nav List == //
   .nav-list
